@@ -1,1 +1,1 @@
-# -elastic-agent-daemonset-helm
+# elastic-agent-daemonset-helm
