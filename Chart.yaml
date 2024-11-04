@@ -1,0 +1,5 @@
+apiVersion: v2
+name: elastic-agent-daemonset-helm-chart
+description: Helm chart for deploying Elastic Agent Daemonset with Kubernetes integration on Kubernetes
+version: 0.1.0
+appVersion: 8.15.3

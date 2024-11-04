@@ -1,0 +1,24 @@
+# For more information https://www.elastic.co/guide/en/fleet/current/running-on-kubernetes-managed-by-fleet.html
+elasticagent:
+  version: 8.15.3
+  image: "docker.elastic.co/beats/elastic-agent"
+  name: "elastic-agent"
+  app: "elastic-agent"
+  env:
+    fleet:
+      # Set to 1 for enrollment into Fleet server. If not set, Elastic Agent is run in standalone mode
+      enroll: 1
+      # Set to true to communicate with Fleet with either insecure HTTP or unverified HTTPS
+      insecure: "true"
+      # FLEET_URL can be found in Kibana, go to Management > Fleet > Settings
+      url: "https://fleet-server-agent-http.default.svc:8220"
+      # Elasticsearch API key used to enroll Elastic Agents in Fleet (https://www.elastic.co/guide/en/fleet/current/fleet-enrollment-tokens.html#fleet-enrollment-tokens)
+      # If FLEET_ENROLLMENT_TOKEN is empty then KIBANA_HOST, KIBANA_FLEET_USERNAME, KIBANA_FLEET_PASSWORD are needed
+      enrollment_token: "eFR3Zjk1SUJ2a0JkR1pHSVRtMXo6Sm1JUG9naVZSNnkyUXdQY0RvNGVLdw=="
+  resources:
+    limits:
+      memory: 700Mi
+    requests:
+      cpu: 100m
+      memory: 400Mi
+
